@@ -1,0 +1,15 @@
+replication:
+  replSetName: "mapa"
+storage:
+  dbPath: "/home/vojnuk/Desktop/projects/mapa/db/rs2"
+systemLog:
+  path: "/home/vojnuk/Desktop/projects/mapa/db/rs2/log/mongod.log"
+  destination: file
+  logAppend: true
+net:
+  port: 20002
+  bindIp: "localhost"
+##security:
+  ##authorization: enabled
+processManagement:
+  fork: true

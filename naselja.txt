@@ -1,0 +1,119 @@
+// samo primer - template naselja
+
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "",
+    "buildings":[
+        {
+            "name": "",
+            "info": "",
+            "picture": "",
+            "built": [],
+            "razed": [],
+        },
+    ],
+    "sources":[
+        {
+            "name": "",
+            "picture": "",
+            "url": "",
+        },
+    ],
+    "books":[
+        {
+            "name": "",
+            "picture": "",
+            "url": "",
+        },
+    ],
+  }
+},
+
+// slede prakticni primeri, подаци су нетачни, дати само ради вежбе
+
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [44.824137, 20.450315]
+  },
+  "properties": {
+    "name": "Београд",
+    "buildings":[
+        {
+            "name": "Београдска тврђава",
+            "info": "Тамо нека тврђава...",
+            "picture": "./pictures/tvrdjava.jpg",
+            "built": ["почетком I века"],
+            "damaged": ["441.", "VIII век", "око 1690."],
+        },
+        {
+            "name": "Црква Свете Петке",
+            "info": "Црква",
+            "picture": "./pictures/crkva_svete_petke",
+            "built": ["?почетак 15. века"],
+            "razed": [],
+        },
+    ],
+    "sources":[
+        {
+            "name": "Житије деспота Стефана Лазаревића, Константин Филозоф",
+            "picture": "",
+            "url": "",
+        },
+    ],
+    "books":[
+        {
+            "name": "Beograd ispod Beograda, Zoran Lj. Nikolić, Vidoje D. Golubović",
+            "picture": "",
+            "url": "",
+        },
+    ],
+  }
+}
+
+db.cities.insertOne({
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [44.824137, 20.450315]
+  },
+  "properties": {
+    "name": "Београд",
+    "buildings":[
+        {
+            "name": "Београдска тврђава",
+            "info": "Тамо нека тврђава...",
+            "picture": "./pictures/tvrdjava.jpg",
+            "built": ["почетком I века"],
+            "damaged": ["441.", "VIII век", "око 1690."],
+        },
+        {
+            "name": "Црква Свете Петке",
+            "info": "Црква",
+            "picture": "./pictures/crkva_svete_petke",
+            "built": ["?почетак 15. века"],
+            "razed": [],
+        },
+    ],
+    "sources":[
+        {
+            "name": "Житије деспота Стефана Лазаревића, Константин Филозоф",
+            "picture": "",
+            "url": "",
+        },
+    ],
+    "books":[
+        {
+            "name": "Beograd ispod Beograda, Zoran Lj. Nikolić, Vidoje D. Golubović",
+            "picture": "",
+            "url": "",
+        },
+    ],
+  }
+})
