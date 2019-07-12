@@ -5,10 +5,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
+const dotenv = require("dotenv").config();
+
 
 const port = 8000;
-
-
 const app = express();
 
 app.use(cors());
@@ -16,7 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-MongoClient.connect("mongodb://localhost:20000,localhost:20001,localhost:20002/?replicaSet=mapa", { useNewUrlParser: true, poolSize: 50, })
+const uri = process.env.MONGODB_URL;
+
+MongoClient.connect(uri, { useNewUrlParser: true, poolSize: 50, })
 .then(client => {
     const db = client.db('settlements');
     const collection = db.collection('cities');
@@ -25,7 +27,7 @@ MongoClient.connect("mongodb://localhost:20000,localhost:20001,localhost:20002/?
   }).catch(error => console.error(error));
 
 
-app.get('/',cors(), (req, res) => {
+app.get('/', (req, res) => {
     const collection = req.app.locals.collection;
     collection.find({}).project({"_id":0}).toArray()
         .then(response => res.status(200).json(response))
