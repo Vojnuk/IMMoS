@@ -8,7 +8,7 @@ const cors = require("cors");
 //const dotenv = require("dotenv").config();
 
 
-const port = process.env.PORT;//was 8000
+const port = process.env.PORT || 8000;
 const app = express();
 
 app.use(cors());
@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 const uri = process.env.PROD_MONGODB;
-
 MongoClient.connect(uri, { useNewUrlParser: true, poolSize: 50, })
 .then(client => {
     const db = client.db('settlements');

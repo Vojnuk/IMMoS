@@ -9,7 +9,7 @@ let attribution = {
 };
 L.tileLayer( tileProvider, attribution).addTo(map);
 
-let serverUrl = "http://localhost:" + process.environment.PORT;
+let serverUrl = "https://immos.herokuapp.com/";
 fetch(serverUrl,{
    //method: "GET",
    //mode: "no-cors",
@@ -71,7 +71,7 @@ function onMarkerClick(e){
 
 
 document.getElementById("jsonButton").addEventListener('click', () => {
-     fetch('http://localhost:8000',{
+     fetch(serverUrl,{
       method: "GET",
       mode: "cors",
       headers: {
