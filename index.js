@@ -9,7 +9,8 @@ let attribution = {
 };
 L.tileLayer( tileProvider, attribution).addTo(map);
 
-fetch('http://localhost:8000',{
+let serverUrl = "http://localhost:" + process.environment.PORT;
+fetch(serverUrl,{
    //method: "GET",
    //mode: "no-cors",
  })
