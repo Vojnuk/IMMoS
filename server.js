@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-app.use(express.static("/public"));
 
 const uri = process.env.PROD_MONGODB;
 MongoClient.connect(uri, { useNewUrlParser: true, poolSize: 50, })
@@ -34,7 +33,7 @@ app.get('/', (req, res) => {
         .then(response => res.status(200).json(response))
         .catch(error => console.error(error));
 });
-
+app.use(express.static(__dirname + "/public"));
 
 app.get('/pictures/tvrdjava.jpg', (req, res) => {
          res.sendFile('/home/vojnuk/Desktop/projects/mapa/pictures/tvrdjava.jpg');
