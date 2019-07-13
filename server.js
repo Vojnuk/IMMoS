@@ -1,6 +1,6 @@
 'esversion:6';
 
-const path = require ("path");
+//const path = require ("path");
 const MongoClient = require("mongodb");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -28,11 +28,11 @@ MongoClient.connect(uri, { useNewUrlParser: true, poolSize: 50, })
   }).catch(error => console.error(error));
 
 
-app.use(express.static( path.join(__dirname, 'public') )); 
+//app.use(express.static( path.join(__dirname, 'public') )); 
 // serving index.html
-app.get('*', (req, res) => {    
+/*app.get('*', (req, res) => {    
   res.sendfile(path.join(__dirname = 'public/index.html')); 
-});
+});*/
 
 app.get('/', (req, res) => {
     const collection = req.app.locals.collection;
