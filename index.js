@@ -15,7 +15,7 @@ fetch(serverUrl,{
    //mode: "no-cors",
  })
  .then( res => {
-   return console.log(res);})//res.json(); })
+   return res.json(); })
   .then( geoData => {
     let marker = L.geoJSON(geoData).addTo(map)
     .bindPopup().addTo(map);
