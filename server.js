@@ -1,5 +1,6 @@
 'esversion:6';
 
+const path = require ("path");
 const MongoClient = require("mongodb");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -27,13 +28,19 @@ MongoClient.connect(uri, { useNewUrlParser: true, poolSize: 50, })
   }).catch(error => console.error(error));
 
 
+app.use(express.static( path.join(__dirname, 'public') )); 
+// serving index.html
+app.get('*', (req, res) => {    
+  res.sendfile(path.join(__dirname = 'public/index.html')); 
+});
+
 app.get('/', (req, res) => {
     const collection = req.app.locals.collection;
     collection.find({}).project({"_id":0}).toArray()
         .then(response => res.status(200).json(response))
         .catch(error => console.error(error));
 });
-app.use(express.static(__dirname + "/public"));
+
 
 app.get('/pictures/tvrdjava.jpg', (req, res) => {
          res.sendFile('/home/vojnuk/Desktop/projects/mapa/pictures/tvrdjava.jpg');
