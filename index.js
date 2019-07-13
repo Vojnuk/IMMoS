@@ -9,7 +9,7 @@ let attribution = {
 };
 L.tileLayer( tileProvider, attribution).addTo(map);
 
-let serverUrl = "https://immos.herokuapp.com";
+let serverUrl = "localhost";
 fetch(serverUrl,{
    //method: "GET",
    //mode: "no-cors",
